@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galeria — Okocimski Klub Tenisowy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Galeria zdjęć Okocimskiego Klubu Tenisowego — turnieje, zajęcia, imprezy klubowe i korty tenisowe w Brzesku.">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Galeria — Okocimski Klub Tenisowy">
+  <meta property="og:description" content="Galeria zdjęć Okocimskiego Klubu Tenisowego — turnieje, zajęcia, imprezy klubowe i korty tenisowe w Brzesku.">
+  <meta property="og:image"       content="https://codeandpixelpl.github.io/okt-klub/assets/images/hero-bg.jpg">
+  <meta property="og:url"         content="https://codeandpixelpl.github.io/okt-klub/galeria.html">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .gallery-cats { display:flex; gap:12px; margin-bottom:48px; flex-wrap:wrap; }
@@ -25,6 +33,11 @@
       overflow: hidden;
       position: relative;
       cursor: pointer;
+      border: none;
+      padding: 0;
+      background: none;
+      text-align: left;
+      width: 100%;
     }
     .masonry-item img {
       width: 100%;
@@ -117,60 +130,60 @@
 
   <!-- Masonry gallery using all available images -->
   <div class="masonry">
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/group-photo.jpg" alt="Turniej Par Mikstowych 2025">
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Turniej Par Mikstowych 2025">
+      <img src="assets/images/group-photo.jpg" alt="Turniej Par Mikstowych 2025" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Turniej Par Mikstowych 2025</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/liga-photo.jpg" alt="Letnia Liga Tenisa 2025 — ceremonia dekoracji">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Letnia Liga Tenisa 2025">
+      <img src="assets/images/liga-photo.jpg" alt="Letnia Liga Tenisa 2025 — ceremonia dekoracji" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Letnia Liga Tenisa 2025</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/co-robimy-1.jpg" alt="Zajęcia dla dzieci">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Zajęcia dla dzieci">
+      <img src="assets/images/co-robimy-1.jpg" alt="Zajęcia dla dzieci" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Zajęcia dla dzieci</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/co-robimy-2.jpg" alt="Treningi grupowe">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Treningi grupowe">
+      <img src="assets/images/co-robimy-2.jpg" alt="Treningi grupowe" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Treningi grupowe</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/dolacz-photo.jpg" alt="Family Cup 2025">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Family Cup 2025">
+      <img src="assets/images/dolacz-photo.jpg" alt="Family Cup 2025" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Family Cup 2025</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/co-robimy-3.jpg" alt="Kortowe widoki">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Korty OKT Brzesko">
+      <img src="assets/images/co-robimy-3.jpg" alt="Kortowe widoki" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Korty OKT Brzesko</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/liga-photo.jpg" alt="Rozgrywki ligowe">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Rozgrywki ligowe">
+      <img src="assets/images/liga-photo.jpg" alt="Rozgrywki ligowe" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Rozgrywki ligowe</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/co-robimy-1.jpg" alt="Szkolenia tenisowe">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Szkolenia tenisowe">
+      <img src="assets/images/co-robimy-1.jpg" alt="Szkolenia tenisowe" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Szkolenia tenisowe</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/group-photo.jpg" alt="Zdjęcie drużynowe OKT">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Drużyna OKT Brzesko">
+      <img src="assets/images/group-photo.jpg" alt="Zdjęcie drużynowe OKT" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Drużyna OKT Brzesko</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/dolacz-photo.jpg" alt="Dołącz do klubu">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Nowi członkowie 2025">
+      <img src="assets/images/dolacz-photo.jpg" alt="Dołącz do klubu" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Nowi członkowie 2025</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/co-robimy-2.jpg" alt="Mecze klubowe">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Mecze klubowe">
+      <img src="assets/images/co-robimy-2.jpg" alt="Mecze klubowe" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Mecze klubowe</span></div>
-    </div>
-    <div class="masonry-item" onclick="openLightbox(this)">
-      <img src="assets/images/co-robimy-3.jpg" alt="Kort tenisowy Brzesko">
+    </button>
+    <button class="masonry-item" onclick="openLightbox(this)" aria-label="Kort nr 2 — po remoncie">
+      <img src="assets/images/co-robimy-3.jpg" alt="Kort tenisowy Brzesko" loading="lazy">
       <div class="masonry-item__overlay"><span class="masonry-item__caption">Kort nr 2 — po remoncie</span></div>
-    </div>
+    </button>
   </div>
 </section>
 
 <!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="lightbox__close">×</span>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+  <span class="lightbox__close" role="button" aria-label="Zamknij">×</span>
   <img id="lightbox-img" src="" alt="">
 </div>
 
