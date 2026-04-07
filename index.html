@@ -26,10 +26,9 @@
     .hero__heading-top  { font-family:'Barlow',sans-serif; font-weight:300; font-size:90px; line-height:1.05; letter-spacing:-2px; }
     .hero__heading-main { font-family:'Barlow',sans-serif; font-weight:700; font-size:90px; line-height:1.05; letter-spacing:-2px; }
     .hero__heading-sub  { font-family:'Barlow',sans-serif; font-weight:400; font-size:48px; line-height:1.1;  letter-spacing:-1px; margin-top:8px; }
-    .hero__video-card { flex-shrink:0; position:relative; width:320px; border-radius:20px; overflow:hidden; box-shadow:0 4px 64px 20px rgba(0,0,0,.25); cursor:pointer; }
-    .hero__video-card video { width:100%; height:250px; object-fit:cover; display:block; }
-    .hero__video-overlay { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; background:rgba(0,0,0,.25); transition:opacity .3s; }
-    .hero__video-overlay.hidden { opacity:0; pointer-events:none; }
+    .hero__video-card { flex-shrink:0; position:relative; width:320px; border-radius:20px; overflow:hidden; box-shadow:0 4px 64px 20px rgba(0,0,0,.25); }
+    .hero__video-card img.hero__video-bg { width:100%; height:250px; object-fit:cover; }
+    .hero__video-overlay { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
     .hero__play-btn { width:54px; height:54px; }
     .hero__video-label { font-family:'Barlow Semi Condensed',sans-serif; font-size:15px; letter-spacing:.12em; text-transform:uppercase; color:#fff; }
     .hero__scroll { position:absolute; z-index:5; right:150px; bottom:60px; display:flex; align-items:center; gap:20px; }
@@ -81,7 +80,7 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
-  <img class="hero__bg" src="assets/images/hero-bg.jpg" alt="Korty tenisowe">
+  <video class="hero__bg" src="assets/hero-video.mp4" autoplay muted loop playsinline></video>
   <nav class="nav">
     <a href="index.html" class="nav__logo">
       <img class="nav__logo-icon" src="assets/images/logo-icon.svg" alt="OKT">
@@ -120,9 +119,9 @@
       </div>
       <a href="aktualnosci.html" class="btn-outline" style="width:fit-content;">Zobacz aktualności</a>
     </div>
-    <div class="hero__video-card" id="heroVideoCard">
-      <video id="heroVideo" src="assets/hero-video.mp4" muted playsinline preload="metadata"></video>
-      <div class="hero__video-overlay" id="heroVideoOverlay">
+    <div class="hero__video-card">
+      <img class="hero__video-bg" src="assets/images/hero-bg.jpg" alt="Wideo">
+      <div class="hero__video-overlay">
         <img class="hero__play-btn" src="assets/images/play-button.svg" alt="Odtwórz">
         <span class="hero__video-label">Zobacz Wideo</span>
       </div>
@@ -296,27 +295,5 @@
   </div>
 </footer>
 
-<script>
-  (function () {
-    var card = document.getElementById('heroVideoCard');
-    var video = document.getElementById('heroVideo');
-    var overlay = document.getElementById('heroVideoOverlay');
-    if (!card || !video || !overlay) return;
-
-    card.addEventListener('click', function () {
-      if (video.paused) {
-        video.play();
-        overlay.classList.add('hidden');
-      } else {
-        video.pause();
-        overlay.classList.remove('hidden');
-      }
-    });
-
-    video.addEventListener('ended', function () {
-      overlay.classList.remove('hidden');
-    });
-  })();
-</script>
 </body>
 </html>
