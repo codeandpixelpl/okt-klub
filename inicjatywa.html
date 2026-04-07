@@ -25,6 +25,15 @@
     .cta-band__title { font-size:38px; line-height:1.1; letter-spacing:-.8px; color:#fff; }
     .cta-band__title em { font-style:normal; font-family:'Barlow',sans-serif; font-weight:300; }
     .cta-band__title strong { font-family:'Barlow',sans-serif; font-weight:700; }
+    @media (max-width: 768px) {
+      .intro-split { flex-direction: column; gap: 32px; margin-bottom: 56px; }
+      .intro-split__img { width: 100%; height: 240px; }
+      .values-grid { grid-template-columns: 1fr; gap: 16px; }
+      .value-card { padding: 28px 24px; }
+      .value-card__num { font-size: 44px; }
+      .cta-band { flex-direction: column; gap: 24px; }
+      .cta-band__title { font-size: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -55,6 +64,9 @@
         <img src="assets/images/instagram-icon.svg" alt="Instagram">
       </div>
     </div>
+    <button class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="page-hero__content">
     <div class="breadcrumb">
@@ -161,5 +173,6 @@
     <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
   </div>
 </footer>
+<script src="assets/js/nav.js"></script>
 </body>
 </html>

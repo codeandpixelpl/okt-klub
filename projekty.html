@@ -46,6 +46,16 @@
     .status-badge--upcoming { background:#fef3c7; color:#92400e; }
     .status-badge--past { background:#f3f4f6; color:#6b7280; }
     .status-dot { width:8px; height:8px; border-radius:50%; background:currentColor; }
+    @media (max-width: 768px) {
+      .project-hero-card { grid-template-columns: 1fr; }
+      .project-hero-card__img { height: 220px; }
+      .project-hero-card__body { padding: 28px 20px; }
+      .project-meta { flex-wrap: wrap; gap: 16px; }
+      .project-row { flex-direction: column; gap: 20px; padding: 20px; }
+      .project-row__img { width: 100%; height: 180px; }
+      .project-row__title { font-size: 22px; }
+      .project-row__footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -76,6 +86,9 @@
         <img src="assets/images/instagram-icon.svg" alt="Instagram">
       </div>
     </div>
+    <button class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="page-hero__content">
     <div class="breadcrumb">
@@ -204,5 +217,6 @@
     <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
   </div>
 </footer>
+<script src="assets/js/nav.js"></script>
 </body>
 </html>

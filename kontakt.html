@@ -59,6 +59,14 @@
     }
     .social-link:hover { border-color:var(--green-dark); background:var(--green-dark); color:#fff; }
     .social-link img { width:22px; height:22px; }
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+      .form-card { padding: 28px 20px; border-radius: 16px; }
+      .form-card h2 { font-size: 24px; }
+      .map-section { padding: 0 20px 60px; }
+      .map-container { height: 300px; border-radius: 16px; }
+      .social-bar { flex-wrap: wrap; gap: 10px; }
+    }
   </style>
 </head>
 <body>
@@ -89,6 +97,9 @@
         <img src="assets/images/instagram-icon.svg" alt="Instagram">
       </div>
     </div>
+    <button class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="page-hero__content">
     <div class="breadcrumb">
@@ -274,5 +285,6 @@
     <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
   </div>
 </footer>
+<script src="assets/js/nav.js"></script>
 </body>
 </html>

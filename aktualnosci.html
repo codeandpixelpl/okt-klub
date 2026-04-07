@@ -41,6 +41,14 @@
       color:var(--green-dark); transition:all .2s;
     }
     .page-btn.active, .page-btn:hover { background:var(--green-dark); color:#fff; border-color:var(--green-dark); }
+    @media (max-width: 768px) {
+      .news-header { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 36px; }
+      .featured-article { grid-template-columns: 1fr; margin-bottom: 40px; }
+      .featured-article__img { height: 220px; }
+      .featured-article__body { padding: 28px 20px; }
+      .featured-article__title { font-size: 22px; }
+      .filter-bar { gap: 8px; }
+    }
   </style>
 </head>
 <body>
@@ -72,6 +80,9 @@
         <img src="assets/images/instagram-icon.svg" alt="Instagram">
       </div>
     </div>
+    <button class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="page-hero__content">
     <div class="breadcrumb">
@@ -211,5 +222,6 @@
     <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
   </div>
 </footer>
+<script src="assets/js/nav.js"></script>
 </body>
 </html>
