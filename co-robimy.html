@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co robimy — Okocimski Klub Tenisowy</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .activity-block { display:flex; gap:80px; align-items:flex-start; margin-bottom:100px; }
+    .activity-block:last-child { margin-bottom:0; }
+    .activity-block--reverse { flex-direction:row-reverse; }
+    .activity-block__img { flex-shrink:0; width:560px; height:400px; border-radius:20px; object-fit:cover; }
+    .activity-block__content { flex:1; display:flex; flex-direction:column; gap:24px; padding-top:20px; }
+    .activity-block__num {
+      font-family:'Barlow',sans-serif; font-weight:700; font-size:80px;
+      line-height:1; color:var(--green-accent); letter-spacing:-3px;
+    }
+    .activity-block__title { font-family:'Barlow',sans-serif; font-weight:700; font-size:40px; line-height:1.1; letter-spacing:-.8px; }
+    .training-schedule { border-radius:20px; border:1.5px solid rgba(0,44,34,.1); overflow:hidden; }
+    .training-row {
+      display:grid; grid-template-columns:1fr 1fr 1fr 1fr;
+      padding:20px 28px; align-items:center; border-bottom:1px solid rgba(0,44,34,.08);
+    }
+    .training-row:last-child { border-bottom:none; }
+    .training-row--header { background:var(--green-dark); }
+    .training-row--header span { font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7); }
+    .training-row:not(.training-row--header):hover { background:#f9fafb; }
+    .tr-name { font-family:'Barlow',sans-serif; font-weight:600; font-size:17px; }
+    .tr-detail { font-size:15px; color:var(--text-gray); }
+    .tr-level { display:inline-flex; align-items:center; padding:4px 12px; border-radius:100px; font-size:13px; font-weight:500; }
+    .tr-level--begin { background:#d4f5c4; color:#1a6e0e; }
+    .tr-level--mid   { background:#fef3c7; color:#92400e; }
+    .tr-level--adv   { background:#ede9fe; color:#5b21b6; }
+    .tr-price { font-family:'Barlow',sans-serif; font-weight:700; font-size:17px; color:var(--green-dark); }
+  </style>
+</head>
+<body>
+
+<section class="page-hero">
+  <img class="page-hero__bg" src="assets/images/co-robimy-1.jpg" alt="">
+  <nav class="nav" style="position:absolute;top:0;left:0;right:0;">
+    <a href="index.html" class="nav__logo">
+      <img class="nav__logo-icon" src="assets/images/logo-icon.svg" alt="OKT">
+      <span class="nav__logo-text">
+        <img class="nav__logo-name" src="assets/images/logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="nav__logo-city" src="assets/images/logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="aktualnosci.html">Aktualności</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="inicjatywa.html">Inicjatywa</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="projekty.html">Projekty</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="co-robimy.html" class="active">Co robimy</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="galeria.html">Galeria</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="nav__phone"><img src="assets/images/phone-icon.svg" alt=""><span>538 224 704</span></div>
+      <a href="kontakt.html" class="btn-outline">Zarezerwuj kort</a>
+      <div class="nav__social">
+        <img src="assets/images/facebook-icon.svg" alt="Facebook">
+        <img src="assets/images/instagram-icon.svg" alt="Instagram">
+      </div>
+    </div>
+  </nav>
+  <div class="page-hero__content">
+    <div class="breadcrumb">
+      <a href="index.html">Strona główna</a><span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current">Co robimy</span>
+    </div>
+    <h1 class="page-hero__title"><em>Co </em><strong>robimy</strong></h1>
+  </div>
+</section>
+
+<section class="section">
+
+  <!-- 01 Szkolenia -->
+  <div class="activity-block">
+    <img class="activity-block__img" src="assets/images/co-robimy-1.jpg" alt="Szkolenia tenisowe">
+    <div class="activity-block__content">
+      <span class="activity-block__num">01</span>
+      <div>
+        <h2 class="activity-block__title">Szkolenia i zajęcia tenisowe</h2>
+        <span class="accent-line"></span>
+      </div>
+      <p class="text-body text-body--lg">Prowadzimy treningi dla dzieci, młodzieży oraz dorosłych, dostosowane do umiejętności uczestników. Nasz doświadczony trener dostosowuje program zajęć do indywidualnych potrzeb każdego uczestnika.</p>
+      <ul style="display:flex;flex-direction:column;gap:10px;padding-left:0;list-style:none;">
+        <li style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--text-gray);">
+          <span style="color:var(--green-accent);font-weight:700;font-size:18px;">✓</span> Grupy dla dzieci 6–12 lat i młodzieży 13–18 lat
+        </li>
+        <li style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--text-gray);">
+          <span style="color:var(--green-accent);font-weight:700;font-size:18px;">✓</span> Zajęcia dla dorosłych — od początkujących do zaawansowanych
+        </li>
+        <li style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--text-gray);">
+          <span style="color:var(--green-accent);font-weight:700;font-size:18px;">✓</span> Indywidualne lekcje i sparingi
+        </li>
+        <li style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--text-gray);">
+          <span style="color:var(--green-accent);font-weight:700;font-size:18px;">✓</span> Obozy tenisowe podczas ferii i wakacji
+        </li>
+      </ul>
+      <a href="kontakt.html" class="btn-primary" style="width:fit-content;">Zapisz się na zajęcia</a>
+    </div>
+  </div>
+
+  <!-- Schedule -->
+  <div style="margin-bottom:100px;">
+    <h2 class="heading-xl" style="margin-bottom:14px;"><em>Harmonogram </em><strong>zajęć</strong></h2>
+    <span class="accent-line"></span>
+    <div class="training-schedule" style="margin-top:48px;">
+      <div class="training-row training-row--header">
+        <span>Nazwa zajęć</span><span>Termin</span><span>Poziom</span><span>Cena/miesiąc</span>
+      </div>
+      <div class="training-row">
+        <span class="tr-name">Tenis dla dzieci (6–12 lat)</span>
+        <span class="tr-detail">Wt, Czw 16:00–17:30</span>
+        <span class="tr-level tr-level--begin">Początkujący</span>
+        <span class="tr-price">180 zł</span>
+      </div>
+      <div class="training-row">
+        <span class="tr-name">Tenis dla młodzieży</span>
+        <span class="tr-detail">Pon, Śr 17:00–18:30</span>
+        <span class="tr-level tr-level--mid">Średniozaawansowany</span>
+        <span class="tr-price">200 zł</span>
+      </div>
+      <div class="training-row">
+        <span class="tr-name">Tenis dla dorosłych — podstawowy</span>
+        <span class="tr-detail">Sob 9:00–10:30</span>
+        <span class="tr-level tr-level--begin">Początkujący</span>
+        <span class="tr-price">160 zł</span>
+      </div>
+      <div class="training-row">
+        <span class="tr-name">Tenis dla dorosłych — zaawansowany</span>
+        <span class="tr-detail">Pon, Pt 19:00–20:30</span>
+        <span class="tr-level tr-level--adv">Zaawansowany</span>
+        <span class="tr-price">220 zł</span>
+      </div>
+      <div class="training-row">
+        <span class="tr-name">Lekcja indywidualna</span>
+        <span class="tr-detail">Według uzgodnienia</span>
+        <span class="tr-level tr-level--mid">Każdy poziom</span>
+        <span class="tr-price">80 zł/h</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Społeczność -->
+  <div class="activity-block activity-block--reverse">
+    <img class="activity-block__img" src="assets/images/co-robimy-2.jpg" alt="Społeczność tenisowa">
+    <div class="activity-block__content">
+      <span class="activity-block__num">02</span>
+      <div>
+        <h2 class="activity-block__title">Aktywna społeczność tenisowa</h2>
+        <span class="accent-line"></span>
+      </div>
+      <p class="text-body text-body--lg">Organizujemy regularne spotkania i rozgrywki, które łączą ludzi wokół wspólnej pasji do sportu. Letnia Liga Tenisa i inne cykliczne turnieje to doskonała okazja do rywalizacji i integracji.</p>
+      <p class="text-body text-body--lg">Dołącz do naszej grupy na Facebooku, gdzie na bieżąco informujemy o wydarzeniach i poszukujemy sparingpartnerów!</p>
+      <a href="projekty.html" class="btn-outline-dark" style="width:fit-content;">Zobacz nasze projekty</a>
+    </div>
+  </div>
+
+  <!-- 03 Inicjatywy -->
+  <div class="activity-block">
+    <img class="activity-block__img" src="assets/images/co-robimy-3.jpg" alt="Inicjatywy sportowe">
+    <div class="activity-block__content">
+      <span class="activity-block__num">03</span>
+      <div>
+        <h2 class="activity-block__title">Otwarte inicjatywy sportowe</h2>
+        <span class="accent-line"></span>
+      </div>
+      <p class="text-body text-body--lg">Nasz klub aktywnie angażuje się w wydarzenia lokalne, w tym charytatywne akcje i turnieje. Wspieramy WOŚP poprzez licytację lekcji tenisa i uczestniczymy w dniach sportu organizowanych przez miasto Brzesko.</p>
+      <p class="text-body text-body--lg">Organizujemy też dni otwarte, podczas których każdy może bezpłatnie spróbować swoich sił na korcie i poznać naszych trenerów.</p>
+      <a href="aktualnosci.html" class="btn-outline-dark" style="width:fit-content;">Sprawdź aktualności</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="footer__top">
+    <a href="index.html" class="footer__logo">
+      <img class="footer__logo-icon" src="assets/images/footer-logo-icon.svg" alt="OKT">
+      <span class="footer__logo-text">
+        <img class="footer__logo-name" src="assets/images/footer-logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="footer__logo-city" src="assets/images/footer-logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <nav class="footer__nav">
+      <a href="aktualnosci.html">Aktualności</a><span class="dot">·</span>
+      <a href="inicjatywa.html">Inicjatywa</a><span class="dot">·</span>
+      <a href="projekty.html">Projekty</a><span class="dot">·</span>
+      <a href="co-robimy.html">Co robimy</a><span class="dot">·</span>
+      <a href="galeria.html">Galeria</a><span class="dot">·</span>
+      <a href="kontakt.html">Kontakt</a><span class="dot">·</span>
+      <div class="footer__social">
+        <img src="assets/images/footer-facebook.svg" alt="Facebook">
+        <img src="assets/images/footer-instagram.svg" alt="Instagram">
+      </div>
+    </nav>
+  </div>
+  <hr class="footer__divider">
+  <div class="footer__credits">
+    <p class="footer__copy">© 2026 Okocimski Klub Tenisowy. Wszystkie prawa zastrzeżone</p>
+    <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
+  </div>
+</footer>
+</body>
+</html>

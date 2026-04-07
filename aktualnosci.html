@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aktualności — Okocimski Klub Tenisowy</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .news-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:60px; }
+    .news-header__left { display:flex; flex-direction:column; }
+    .filter-bar { display:flex; gap:12px; flex-wrap:wrap; }
+    .filter-btn {
+      padding:10px 22px; border-radius:100px; font-family:'Barlow Semi Condensed',sans-serif;
+      font-size:14px; letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+      border:1.5px solid rgba(0,44,34,.2); background:transparent; color:var(--green-dark);
+      transition:all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover { background:var(--green-dark); color:#fff; border-color:var(--green-dark); }
+    .featured-article {
+      display:grid; grid-template-columns:1fr 1fr; gap:0;
+      border-radius:20px; overflow:hidden; border:1px solid rgba(0,44,34,.1);
+      margin-bottom:60px;
+    }
+    .featured-article__img { width:100%; height:500px; object-fit:cover; }
+    .featured-article__body {
+      padding:60px; display:flex; flex-direction:column; gap:24px;
+      justify-content:center; background:#fff;
+    }
+    .featured-article__meta { display:flex; align-items:center; gap:16px; }
+    .featured-article__date { font-size:14px; color:var(--text-gray); }
+    .featured-article__title {
+      font-family:'Barlow',sans-serif; font-weight:700; font-size:36px;
+      line-height:1.15; letter-spacing:-.7px; color:var(--green-dark);
+    }
+    .featured-article__excerpt { font-size:17px; line-height:1.55; color:var(--text-gray); }
+    .pagination { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:60px; }
+    .page-btn {
+      width:44px; height:44px; border-radius:50%; display:flex; align-items:center;
+      justify-content:center; font-family:'Inter',sans-serif; font-size:15px; font-weight:500;
+      cursor:pointer; border:1.5px solid rgba(0,44,34,.2); background:transparent;
+      color:var(--green-dark); transition:all .2s;
+    }
+    .page-btn.active, .page-btn:hover { background:var(--green-dark); color:#fff; border-color:var(--green-dark); }
+  </style>
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img class="page-hero__bg" src="assets/images/hero-bg.jpg" alt="">
+  <nav class="nav" style="position:absolute;top:0;left:0;right:0;">
+    <a href="index.html" class="nav__logo">
+      <img class="nav__logo-icon" src="assets/images/logo-icon.svg" alt="OKT">
+      <span class="nav__logo-text">
+        <img class="nav__logo-name" src="assets/images/logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="nav__logo-city" src="assets/images/logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="aktualnosci.html" class="active">Aktualności</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="inicjatywa.html">Inicjatywa</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="projekty.html">Projekty</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="co-robimy.html">Co robimy</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="galeria.html">Galeria</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="nav__phone"><img src="assets/images/phone-icon.svg" alt=""><span>538 224 704</span></div>
+      <a href="kontakt.html" class="btn-outline">Zarezerwuj kort</a>
+      <div class="nav__social">
+        <img src="assets/images/facebook-icon.svg" alt="Facebook">
+        <img src="assets/images/instagram-icon.svg" alt="Instagram">
+      </div>
+    </div>
+  </nav>
+  <div class="page-hero__content">
+    <div class="breadcrumb">
+      <a href="index.html">Strona główna</a>
+      <span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current">Aktualności</span>
+    </div>
+    <h1 class="page-hero__title"><em>Aktual</em><strong>ności</strong></h1>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+
+  <!-- Featured article -->
+  <div class="featured-article">
+    <img class="featured-article__img" src="assets/images/liga-photo.jpg" alt="Letnia Liga Tenisa 2025 — podsumowanie sezonu">
+    <div class="featured-article__body">
+      <div class="featured-article__meta">
+        <span class="badge-green">Wyróżnione</span>
+        <span class="featured-article__date">15 lutego 2026</span>
+      </div>
+      <h2 class="featured-article__title">Letnia Liga Tenisa 2025 — podsumowanie sezonu</h2>
+      <p class="featured-article__excerpt">Za nami kolejna edycja Letniej Ligi Tenisa! W tym roku do rozgrywek przystąpiło aż 48 zawodników w różnych kategoriach wiekowych. Sezon obfitował w emocje i zacięte pojedynki...</p>
+      <a href="#" class="btn-outline-dark" style="width:fit-content;margin-top:12px;">Czytaj więcej</a>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="news-header">
+    <div class="news-header__left">
+      <h2 class="heading-xl"><em>Wszystkie </em><strong>artykuły</strong></h2>
+      <span class="accent-line"></span>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active">Wszystkie</button>
+      <button class="filter-btn">Turnieje</button>
+      <button class="filter-btn">Szkolenia</button>
+      <button class="filter-btn">Inicjatywy</button>
+      <button class="filter-btn">Klub</button>
+    </div>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="cards-grid">
+    <article class="card">
+      <img class="card__img" src="assets/images/co-robimy-1.jpg" alt="">
+      <div class="card__body">
+        <div class="card__meta"><span class="badge-green">Szkolenia</span><span class="card__date">10 lutego 2026</span></div>
+        <h3 class="card__title">Nabór na wiosenne zajęcia tenisowe 2026</h3>
+        <p class="card__excerpt">Ruszamy z rekrutacją na nowy sezon! Zapraszamy dzieci, młodzież i dorosłych na treningi tenisowe. Zapisz się już dziś i zarezerwuj swoje miejsce.</p>
+        <a href="#" class="card__link">Czytaj więcej →</a>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/images/co-robimy-2.jpg" alt="">
+      <div class="card__body">
+        <div class="card__meta"><span class="badge-green">Turnieje</span><span class="card__date">28 stycznia 2026</span></div>
+        <h3 class="card__title">Family Cup 2025 — relacja z turnieju rodzinnego</h3>
+        <p class="card__excerpt">W pięknej, rodzinnej atmosferze rozegraliśmy kolejną edycję Family Cup. Blisko 30 rodzin wzięło udział w rywalizacji na naszych kortach.</p>
+        <a href="#" class="card__link">Czytaj więcej →</a>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/images/group-photo.jpg" alt="">
+      <div class="card__body">
+        <div class="card__meta"><span class="badge-green">Klub</span><span class="card__date">12 stycznia 2026</span></div>
+        <h3 class="card__title">Nowy zarząd klubu na rok 2026</h3>
+        <p class="card__excerpt">Na walnym zebraniu członków klub wybrał nowy zarząd. Poznaj skład i plany na nadchodzący sezon.</p>
+        <a href="#" class="card__link">Czytaj więcej →</a>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/images/co-robimy-3.jpg" alt="">
+      <div class="card__body">
+        <div class="card__meta"><span class="badge-green">Inicjatywy</span><span class="card__date">5 stycznia 2026</span></div>
+        <h3 class="card__title">WOŚP 2026 — licytujemy lekcje tenisa!</h3>
+        <p class="card__excerpt">Po raz kolejny wspieramy Wielką Orkiestrę Świątecznej Pomocy. Do licytacji trafiają pakiety 5 lekcji tenisa z naszymi trenerami.</p>
+        <a href="#" class="card__link">Czytaj więcej →</a>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/images/liga-photo.jpg" alt="">
+      <div class="card__body">
+        <div class="card__meta"><span class="badge-green">Turnieje</span><span class="card__date">18 grudnia 2025</span></div>
+        <h3 class="card__title">Turniej Par Mikstowych — wyniki i galeria</h3>
+        <p class="card__excerpt">Znamy zwycięzców tegorocznego Turnieju Par Mikstowych! Sprawdź pełne wyniki i obejrzyj galerię zdjęć z zawodów.</p>
+        <a href="#" class="card__link">Czytaj więcej →</a>
+      </div>
+    </article>
+    <article class="card">
+      <img class="card__img" src="assets/images/dolacz-photo.jpg" alt="">
+      <div class="card__body">
+        <div class="card__meta"><span class="badge-green">Szkolenia</span><span class="card__date">1 grudnia 2025</span></div>
+        <h3 class="card__title">Zimowe obozy tenisowe — zapisz dziecko!</h3>
+        <p class="card__excerpt">Podczas ferii zimowych organizujemy intensywne obozy tenisowe dla dzieci i młodzieży. Profesjonalne treningi, zabawa i nowe znajomości.</p>
+        <a href="#" class="card__link">Czytaj więcej →</a>
+      </div>
+    </article>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button class="page-btn active">1</button>
+    <button class="page-btn">2</button>
+    <button class="page-btn">3</button>
+    <button class="page-btn">›</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__top">
+    <a href="index.html" class="footer__logo">
+      <img class="footer__logo-icon" src="assets/images/footer-logo-icon.svg" alt="OKT">
+      <span class="footer__logo-text">
+        <img class="footer__logo-name" src="assets/images/footer-logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="footer__logo-city" src="assets/images/footer-logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <nav class="footer__nav">
+      <a href="aktualnosci.html">Aktualności</a><span class="dot">·</span>
+      <a href="inicjatywa.html">Inicjatywa</a><span class="dot">·</span>
+      <a href="projekty.html">Projekty</a><span class="dot">·</span>
+      <a href="co-robimy.html">Co robimy</a><span class="dot">·</span>
+      <a href="galeria.html">Galeria</a><span class="dot">·</span>
+      <a href="kontakt.html">Kontakt</a><span class="dot">·</span>
+      <div class="footer__social">
+        <img src="assets/images/footer-facebook.svg" alt="Facebook">
+        <img src="assets/images/footer-instagram.svg" alt="Instagram">
+      </div>
+    </nav>
+  </div>
+  <hr class="footer__divider">
+  <div class="footer__credits">
+    <p class="footer__copy">© 2026 Okocimski Klub Tenisowy. Wszystkie prawa zastrzeżone</p>
+    <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
+  </div>
+</footer>
+</body>
+</html>

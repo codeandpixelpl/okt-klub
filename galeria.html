@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria — Okocimski Klub Tenisowy</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .gallery-cats { display:flex; gap:12px; margin-bottom:48px; flex-wrap:wrap; }
+    .gallery-cat {
+      padding:10px 22px; border-radius:100px; font-family:'Barlow Semi Condensed',sans-serif;
+      font-size:14px; letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+      border:1.5px solid rgba(0,44,34,.2); background:transparent; color:var(--green-dark);
+      transition:all .2s;
+    }
+    .gallery-cat.active, .gallery-cat:hover { background:var(--green-dark); color:#fff; border-color:var(--green-dark); }
+    .masonry {
+      columns: 4;
+      column-gap: 16px;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform .4s;
+    }
+    .masonry-item:hover img { transform: scale(1.03); }
+    .masonry-item__overlay {
+      position:absolute; inset:0; background:rgba(0,44,34,.5);
+      display:flex; align-items:flex-end; padding:20px;
+      opacity:0; transition:opacity .3s;
+    }
+    .masonry-item:hover .masonry-item__overlay { opacity:1; }
+    .masonry-item__caption { color:#fff; font-size:14px; line-height:1.4; font-family:'Barlow',sans-serif; font-weight:600; }
+    .lightbox {
+      position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:1000;
+      display:none; align-items:center; justify-content:center;
+    }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width:90vw; max-height:90vh; border-radius:12px; object-fit:contain; }
+    .lightbox__close {
+      position:fixed; top:24px; right:32px; font-size:40px; color:#fff;
+      cursor:pointer; line-height:1; opacity:.8;
+    }
+    .lightbox__close:hover { opacity:1; }
+    .gallery-section-title { margin-bottom:32px; }
+  </style>
+</head>
+<body>
+
+<section class="page-hero">
+  <img class="page-hero__bg" src="assets/images/group-photo.jpg" alt="">
+  <nav class="nav" style="position:absolute;top:0;left:0;right:0;">
+    <a href="index.html" class="nav__logo">
+      <img class="nav__logo-icon" src="assets/images/logo-icon.svg" alt="OKT">
+      <span class="nav__logo-text">
+        <img class="nav__logo-name" src="assets/images/logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="nav__logo-city" src="assets/images/logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="aktualnosci.html">Aktualności</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="inicjatywa.html">Inicjatywa</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="projekty.html">Projekty</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="co-robimy.html">Co robimy</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="galeria.html" class="active">Galeria</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="nav__phone"><img src="assets/images/phone-icon.svg" alt=""><span>538 224 704</span></div>
+      <a href="kontakt.html" class="btn-outline">Zarezerwuj kort</a>
+      <div class="nav__social">
+        <img src="assets/images/facebook-icon.svg" alt="Facebook">
+        <img src="assets/images/instagram-icon.svg" alt="Instagram">
+      </div>
+    </div>
+  </nav>
+  <div class="page-hero__content">
+    <div class="breadcrumb">
+      <a href="index.html">Strona główna</a><span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current">Galeria</span>
+    </div>
+    <h1 class="page-hero__title"><em>Gale</em><strong>ria</strong></h1>
+  </div>
+</section>
+
+<section class="section">
+  <div style="margin-bottom:48px;">
+    <h2 class="heading-xl"><em>Zdjęcia </em><strong>z życia klubu</strong></h2>
+    <span class="accent-line"></span>
+  </div>
+
+  <div class="gallery-cats">
+    <button class="gallery-cat active">Wszystkie</button>
+    <button class="gallery-cat">Turnieje</button>
+    <button class="gallery-cat">Zajęcia</button>
+    <button class="gallery-cat">Imprezy klubowe</button>
+    <button class="gallery-cat">Korty</button>
+  </div>
+
+  <!-- Masonry gallery using all available images -->
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/group-photo.jpg" alt="Turniej Par Mikstowych 2025">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Turniej Par Mikstowych 2025</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/liga-photo.jpg" alt="Letnia Liga Tenisa 2025 — ceremonia dekoracji">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Letnia Liga Tenisa 2025</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/co-robimy-1.jpg" alt="Zajęcia dla dzieci">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Zajęcia dla dzieci</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/co-robimy-2.jpg" alt="Treningi grupowe">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Treningi grupowe</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/dolacz-photo.jpg" alt="Family Cup 2025">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Family Cup 2025</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/co-robimy-3.jpg" alt="Kortowe widoki">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Korty OKT Brzesko</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/liga-photo.jpg" alt="Rozgrywki ligowe">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Rozgrywki ligowe</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/co-robimy-1.jpg" alt="Szkolenia tenisowe">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Szkolenia tenisowe</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/group-photo.jpg" alt="Zdjęcie drużynowe OKT">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Drużyna OKT Brzesko</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/dolacz-photo.jpg" alt="Dołącz do klubu">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Nowi członkowie 2025</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/co-robimy-2.jpg" alt="Mecze klubowe">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Mecze klubowe</span></div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(this)">
+      <img src="assets/images/co-robimy-3.jpg" alt="Kort tenisowy Brzesko">
+      <div class="masonry-item__overlay"><span class="masonry-item__caption">Kort nr 2 — po remoncie</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox__close">×</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(el) {
+    const src = el.querySelector('img').src;
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+
+  document.querySelectorAll('.gallery-cat').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.gallery-cat').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+<footer class="footer">
+  <div class="footer__top">
+    <a href="index.html" class="footer__logo">
+      <img class="footer__logo-icon" src="assets/images/footer-logo-icon.svg" alt="OKT">
+      <span class="footer__logo-text">
+        <img class="footer__logo-name" src="assets/images/footer-logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="footer__logo-city" src="assets/images/footer-logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <nav class="footer__nav">
+      <a href="aktualnosci.html">Aktualności</a><span class="dot">·</span>
+      <a href="inicjatywa.html">Inicjatywa</a><span class="dot">·</span>
+      <a href="projekty.html">Projekty</a><span class="dot">·</span>
+      <a href="co-robimy.html">Co robimy</a><span class="dot">·</span>
+      <a href="galeria.html">Galeria</a><span class="dot">·</span>
+      <a href="kontakt.html">Kontakt</a><span class="dot">·</span>
+      <div class="footer__social">
+        <img src="assets/images/footer-facebook.svg" alt="Facebook">
+        <img src="assets/images/footer-instagram.svg" alt="Instagram">
+      </div>
+    </nav>
+  </div>
+  <hr class="footer__divider">
+  <div class="footer__credits">
+    <p class="footer__copy">© 2026 Okocimski Klub Tenisowy. Wszystkie prawa zastrzeżone</p>
+    <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
+  </div>
+</footer>
+</body>
+</html>

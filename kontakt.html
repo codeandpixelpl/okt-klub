@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — Okocimski Klub Tenisowy</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .contact-layout { display:grid; grid-template-columns:1fr 1.6fr; gap:80px; align-items:start; }
+    .contact-info { display:flex; flex-direction:column; gap:40px; }
+    .contact-block { display:flex; flex-direction:column; gap:10px; }
+    .contact-block__label {
+      font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--text-gray);
+    }
+    .contact-block__value { font-family:'Barlow',sans-serif; font-weight:600; font-size:22px; color:var(--green-dark); }
+    .contact-block__sub { font-size:15px; color:var(--text-gray); line-height:1.5; }
+    .contact-divider { height:1px; background:rgba(0,44,34,.1); }
+    .hours-table { display:flex; flex-direction:column; gap:10px; }
+    .hours-row { display:flex; justify-content:space-between; align-items:center; }
+    .hours-row span:first-child { font-size:15px; color:var(--text-gray); }
+    .hours-row span:last-child { font-size:15px; font-weight:600; color:var(--green-dark); }
+    .form-card {
+      background:#fff; border-radius:24px; border:1.5px solid rgba(0,44,34,.1);
+      padding:52px; box-shadow:0 4px 40px rgba(0,44,34,.06);
+    }
+    .form-card h2 { font-family:'Barlow',sans-serif; font-weight:700; font-size:32px; margin-bottom:8px; }
+    .form-card p { font-size:15px; color:var(--text-gray); margin-bottom:36px; }
+    .form-success {
+      display:none; background:#d4f5c4; border-radius:16px; padding:24px 28px;
+      font-size:16px; color:#1a6e0e; font-weight:500; margin-top:20px;
+    }
+    .map-section { padding:0 150px 120px; }
+    .map-container {
+      border-radius:24px; overflow:hidden; height:420px;
+      border:1.5px solid rgba(0,44,34,.1);
+      background:#e8f4ee; display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .map-placeholder {
+      display:flex; flex-direction:column; align-items:center; gap:16px;
+      color:var(--green-dark);
+    }
+    .map-placeholder svg { width:48px; height:48px; }
+    .map-placeholder p { font-size:18px; font-weight:600; }
+    .map-placeholder span { font-size:15px; color:var(--text-gray); }
+    .map-pin-overlay {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      background:var(--green-dark); color:#fff; border-radius:16px; padding:16px 24px;
+      display:flex; align-items:center; gap:12px; box-shadow:0 8px 32px rgba(0,44,34,.3);
+    }
+    .map-pin-overlay span { font-family:'Barlow',sans-serif; font-weight:600; font-size:16px; }
+    .social-bar { display:flex; gap:16px; }
+    .social-link {
+      display:flex; align-items:center; gap:10px; padding:12px 20px;
+      border-radius:100px; border:1.5px solid rgba(0,44,34,.15);
+      font-family:'Barlow',sans-serif; font-weight:600; font-size:15px; color:var(--green-dark);
+      transition:all .2s;
+    }
+    .social-link:hover { border-color:var(--green-dark); background:var(--green-dark); color:#fff; }
+    .social-link img { width:22px; height:22px; }
+  </style>
+</head>
+<body>
+
+<section class="page-hero">
+  <img class="page-hero__bg" src="assets/images/co-robimy-3.jpg" alt="">
+  <nav class="nav" style="position:absolute;top:0;left:0;right:0;">
+    <a href="index.html" class="nav__logo">
+      <img class="nav__logo-icon" src="assets/images/logo-icon.svg" alt="OKT">
+      <span class="nav__logo-text">
+        <img class="nav__logo-name" src="assets/images/logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="nav__logo-city" src="assets/images/logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="aktualnosci.html">Aktualności</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="inicjatywa.html">Inicjatywa</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="projekty.html">Projekty</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="co-robimy.html">Co robimy</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="galeria.html">Galeria</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="nav__phone"><img src="assets/images/phone-icon.svg" alt=""><span>538 224 704</span></div>
+      <a href="#form" class="btn-outline">Zarezerwuj kort</a>
+      <div class="nav__social">
+        <img src="assets/images/facebook-icon.svg" alt="Facebook">
+        <img src="assets/images/instagram-icon.svg" alt="Instagram">
+      </div>
+    </div>
+  </nav>
+  <div class="page-hero__content">
+    <div class="breadcrumb">
+      <a href="index.html">Strona główna</a><span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current">Kontakt</span>
+    </div>
+    <h1 class="page-hero__title"><em>Skon</em><strong>taktuj się</strong></h1>
+  </div>
+</section>
+
+<!-- CONTACT + FORM -->
+<section class="section" id="form">
+  <div class="contact-layout">
+
+    <!-- Info panel -->
+    <div class="contact-info">
+      <div>
+        <h2 class="heading-xl"><em>Dane </em><strong>kontaktowe</strong></h2>
+        <span class="accent-line"></span>
+      </div>
+
+      <div class="contact-block">
+        <span class="contact-block__label">Adres</span>
+        <span class="contact-block__value">ul. Sportowa 10</span>
+        <span class="contact-block__sub">32-800 Brzesko<br>woj. małopolskie</span>
+      </div>
+      <div class="contact-divider"></div>
+
+      <div class="contact-block">
+        <span class="contact-block__label">Telefon</span>
+        <span class="contact-block__value">538 224 704</span>
+        <span class="contact-block__sub">Dostępny w godzinach pracy kortów</span>
+      </div>
+      <div class="contact-divider"></div>
+
+      <div class="contact-block">
+        <span class="contact-block__label">E-mail</span>
+        <span class="contact-block__value">kontakt@okt-brzesko.pl</span>
+        <span class="contact-block__sub">Odpowiadamy w ciągu 24 godzin</span>
+      </div>
+      <div class="contact-divider"></div>
+
+      <div class="contact-block">
+        <span class="contact-block__label">Godziny otwarcia kortów</span>
+        <div class="hours-table" style="margin-top:8px;">
+          <div class="hours-row"><span>Poniedziałek – Piątek</span><span>8:00 – 21:00</span></div>
+          <div class="hours-row"><span>Sobota</span><span>8:00 – 20:00</span></div>
+          <div class="hours-row"><span>Niedziela</span><span>9:00 – 18:00</span></div>
+        </div>
+      </div>
+      <div class="contact-divider"></div>
+
+      <div class="contact-block">
+        <span class="contact-block__label">Media społecznościowe</span>
+        <div class="social-bar" style="margin-top:8px;">
+          <a href="#" class="social-link">
+            <img src="assets/images/facebook-icon.svg" alt=""> Facebook
+          </a>
+          <a href="#" class="social-link">
+            <img src="assets/images/instagram-icon.svg" alt=""> Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-card">
+      <h2>Napisz do nas</h2>
+      <p>Chcesz zarezerwować kort, zapisać się na zajęcia lub masz pytania? Wypełnij formularz — odpiszemy najszybciej jak to możliwe.</p>
+
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="firstName">Imię *</label>
+            <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Jan" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">Nazwisko *</label>
+            <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Kowalski" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail *</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="jan@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Telefon</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+48 000 000 000">
+          </div>
+          <div class="form-group form-group--full">
+            <label class="form-label" for="topic">Temat wiadomości *</label>
+            <select class="form-select" id="topic" name="topic" required>
+              <option value="" disabled selected>Wybierz temat…</option>
+              <option value="reservation">Rezerwacja kortu</option>
+              <option value="training">Zapisy na zajęcia / szkolenia</option>
+              <option value="membership">Członkostwo w klubie</option>
+              <option value="tournament">Turnieje i rozgrywki</option>
+              <option value="cooperation">Współpraca i sponsoring</option>
+              <option value="other">Inne</option>
+            </select>
+          </div>
+          <div class="form-group form-group--full">
+            <label class="form-label" for="date">Preferowana data (rezerwacja kortu)</label>
+            <input class="form-input" type="date" id="date" name="date">
+          </div>
+          <div class="form-group form-group--full">
+            <label class="form-label" for="message">Wiadomość *</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Opisz swoje zapytanie…" required></textarea>
+          </div>
+          <div class="form-group form-group--full">
+            <label class="form-checkbox">
+              <input type="checkbox" required>
+              <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na wiadomość, zgodnie z <a href="#" style="color:var(--green-dark);">Polityką Prywatności</a> Okocimskiego Klubu Tenisowego. *</span>
+            </label>
+          </div>
+          <div class="form-group form-group--full" style="margin-top:8px;">
+            <button type="submit" class="btn-primary" style="width:fit-content;padding:16px 40px;font-size:17px;">
+              Wyślij wiadomość →
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        ✓ Dziękujemy! Twoja wiadomość została wysłana. Odpiszemy w ciągu 24 godzin.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <div style="margin-bottom:40px;">
+    <h2 class="heading-xl"><em>Jak do </em><strong>nas trafić</strong></h2>
+    <span class="accent-line"></span>
+  </div>
+  <div class="map-container">
+    <div class="map-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+      </svg>
+      <p>Okocimski Klub Tenisowy</p>
+      <span>ul. Sportowa 10, 32-800 Brzesko</span>
+      <a href="https://maps.google.com/?q=Brzesko+korty+tenisowe" target="_blank" class="btn-outline-dark" style="margin-top:16px;">
+        Otwórz w Google Maps →
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+
+<footer class="footer">
+  <div class="footer__top">
+    <a href="index.html" class="footer__logo">
+      <img class="footer__logo-icon" src="assets/images/footer-logo-icon.svg" alt="OKT">
+      <span class="footer__logo-text">
+        <img class="footer__logo-name" src="assets/images/footer-logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="footer__logo-city" src="assets/images/footer-logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <nav class="footer__nav">
+      <a href="aktualnosci.html">Aktualności</a><span class="dot">·</span>
+      <a href="inicjatywa.html">Inicjatywa</a><span class="dot">·</span>
+      <a href="projekty.html">Projekty</a><span class="dot">·</span>
+      <a href="co-robimy.html">Co robimy</a><span class="dot">·</span>
+      <a href="galeria.html">Galeria</a><span class="dot">·</span>
+      <a href="kontakt.html">Kontakt</a><span class="dot">·</span>
+      <div class="footer__social">
+        <img src="assets/images/footer-facebook.svg" alt="Facebook">
+        <img src="assets/images/footer-instagram.svg" alt="Instagram">
+      </div>
+    </nav>
+  </div>
+  <hr class="footer__divider">
+  <div class="footer__credits">
+    <p class="footer__copy">© 2026 Okocimski Klub Tenisowy. Wszystkie prawa zastrzeżone</p>
+    <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
+  </div>
+</footer>
+</body>
+</html>

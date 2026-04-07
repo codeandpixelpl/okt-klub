@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Okocimski Klub Tenisowy w Brzesku</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── Hero ── */
+    .hero__body {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 80px 150px 100px;
+    }
+    .hero__content { display: flex; flex-direction: column; gap: 32px; }
+    .hero__badge {
+      display: inline-flex; align-items: center; padding: 9px 16px;
+      border: 1px solid #fff; border-radius: 100px;
+      font-family: 'Barlow Semi Condensed', sans-serif; font-size: 14px;
+      letter-spacing: .12em; text-transform: uppercase; color: #fff;
+    }
+    .hero__heading { display: flex; flex-direction: column; color: #fff; }
+    .hero__heading-top  { font-family:'Barlow',sans-serif; font-weight:300; font-size:90px; line-height:1.05; letter-spacing:-2px; }
+    .hero__heading-main { font-family:'Barlow',sans-serif; font-weight:700; font-size:90px; line-height:1.05; letter-spacing:-2px; }
+    .hero__heading-sub  { font-family:'Barlow',sans-serif; font-weight:400; font-size:48px; line-height:1.1;  letter-spacing:-1px; margin-top:8px; }
+    .hero__video-card { flex-shrink:0; position:relative; width:320px; border-radius:20px; overflow:hidden; box-shadow:0 4px 64px 20px rgba(0,0,0,.25); cursor:pointer; }
+    .hero__video-card video { width:100%; height:250px; object-fit:cover; display:block; }
+    .hero__video-overlay { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; background:rgba(0,0,0,.25); transition:opacity .3s; }
+    .hero__video-overlay.hidden { opacity:0; pointer-events:none; }
+    .hero__play-btn { width:54px; height:54px; }
+    .hero__video-label { font-family:'Barlow Semi Condensed',sans-serif; font-size:15px; letter-spacing:.12em; text-transform:uppercase; color:#fff; }
+    .hero__scroll { position:absolute; z-index:5; right:150px; bottom:60px; display:flex; align-items:center; gap:20px; }
+    .hero__scroll-line { width:62px; height:1px; background:rgba(255,255,255,.6); }
+    .hero__scroll-label { font-family:'Barlow Semi Condensed',sans-serif; font-size:15px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.8); }
+    /* ── Aktywna ── */
+    .aktywna { display:flex; gap:95px; align-items:center; }
+    .aktywna__img { flex-shrink:0; width:692px; height:364px; border-radius:20px; object-fit:cover; }
+    .aktywna__content { flex:1; display:flex; flex-direction:column; gap:16px; }
+    /* ── Events ── */
+    .events-grid { display:flex; flex-direction:column; gap:20px; position:relative; z-index:2; }
+    .event-card-main { display:flex; gap:36px; align-items:center; background:var(--green-dark); border:1px solid rgba(255,255,255,.12); border-radius:20px; overflow:hidden; height:399px; }
+    .event-card-main__img { width:600px; height:100%; object-fit:cover; flex-shrink:0; }
+    .event-card-main__body { flex:1; display:flex; flex-direction:column; gap:21px; align-items:flex-start; padding-right:36px; }
+    .event-card-main__icon { width:64px; height:64px; }
+    .events-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .event-card-small { background:var(--green-dark); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:21px; }
+    .event-card-small__icon { width:64px; height:64px; }
+    /* ── Co robimy ── */
+    .co-robimy { display:flex; gap:70px; align-items:flex-start; }
+    .co-robimy__gallery { flex-shrink:0; width:542px; display:flex; flex-direction:column; gap:12px; }
+    .co-robimy__img-top { width:100%; height:295px; border-radius:20px; object-fit:cover; }
+    .co-robimy__img-row { display:flex; gap:12px; }
+    .co-robimy__img-bottom { flex:1; height:198px; border-radius:20px; object-fit:cover; }
+    .co-robimy__content { flex:1; display:flex; flex-direction:column; gap:62px; }
+    .co-robimy__list { display:flex; flex-direction:column; gap:24px; }
+    .co-robimy__item { display:flex; flex-direction:column; gap:9px; padding-bottom:31px; border-bottom:1px solid rgba(0,44,34,.15); }
+    .co-robimy__item:last-child { border-bottom:none; padding-bottom:0; }
+    .co-robimy__item-title { font-family:'Barlow',sans-serif; font-size:28px; line-height:1.1; letter-spacing:-.56px; color:var(--green-dark); }
+    .co-robimy__item-title span { font-weight:300; }
+    .co-robimy__item-title strong { font-weight:700; }
+    .co-robimy__item p { font-size:18px; line-height:1.4; color:var(--text-gray); }
+    /* ── Misja ── */
+    .misja { display:flex; align-items:center; gap:80px; position:relative; z-index:2; }
+    .misja__content { flex:0 0 auto; width:588px; display:flex; flex-direction:column; gap:70px; }
+    .misja__list { display:flex; flex-direction:column; gap:23px; }
+    .misja__item { display:flex; flex-direction:column; gap:9px; padding-bottom:31px; border-bottom:1px solid rgba(255,255,255,.2); }
+    .misja__item-title { font-family:'Barlow',sans-serif; font-weight:700; font-size:28px; line-height:1.1; letter-spacing:-.56px; color:#fff; }
+    .misja__item p { font-size:18px; line-height:1.4; color:rgba(255,255,255,.8); }
+    .misja__image { flex:1; height:703px; border-radius:20px; object-fit:cover; object-position:center top; }
+    /* ── Dołącz ── */
+    .dolacz { display:flex; align-items:center; justify-content:space-between; gap:60px; }
+    .dolacz__content { flex-shrink:0; width:588px; display:flex; flex-direction:column; gap:62px; }
+    .dolacz__text { font-size:18px; line-height:1.4; color:var(--text-gray); }
+    .dolacz__img { flex:1; height:488px; border-radius:20px; object-fit:cover; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <img class="hero__bg" src="assets/images/hero-bg.jpg" alt="Korty tenisowe">
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">
+      <img class="nav__logo-icon" src="assets/images/logo-icon.svg" alt="OKT">
+      <span class="nav__logo-text">
+        <img class="nav__logo-name" src="assets/images/logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="nav__logo-city" src="assets/images/logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="aktualnosci.html">Aktualności</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="inicjatywa.html">Inicjatywa</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="projekty.html">Projekty</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="co-robimy.html">Co robimy</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="galeria.html">Galeria</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="nav__phone">
+        <img src="assets/images/phone-icon.svg" alt="">
+        <span>538 224 704</span>
+      </div>
+      <a href="kontakt.html" class="btn-outline">Zarezerwuj kort</a>
+      <div class="nav__social">
+        <img src="assets/images/facebook-icon.svg" alt="Facebook">
+        <img src="assets/images/instagram-icon.svg" alt="Instagram">
+      </div>
+    </div>
+  </nav>
+  <div class="hero__body">
+    <div class="hero__content">
+      <span class="hero__badge">Pasja, Sport i Społeczność</span>
+      <div class="hero__heading">
+        <span class="hero__heading-top">Okocimski</span>
+        <span class="hero__heading-main">Klub Tenisowy</span>
+        <span class="hero__heading-sub">w Brzesku</span>
+      </div>
+      <a href="aktualnosci.html" class="btn-outline" style="width:fit-content;">Zobacz aktualności</a>
+    </div>
+    <div class="hero__video-card" id="heroVideoCard">
+      <video id="heroVideo" src="assets/29 września 2023 [0QRg7v_GG4A] (3)_1.mp4" muted playsinline preload="metadata"></video>
+      <div class="hero__video-overlay" id="heroVideoOverlay">
+        <img class="hero__play-btn" src="assets/images/play-button.svg" alt="Odtwórz">
+        <span class="hero__video-label">Zobacz Wideo</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll">
+    <div class="hero__scroll-line"></div>
+    <span class="hero__scroll-label">Przewiń</span>
+  </div>
+</section>
+
+<!-- ═══ AKTYWNA SPOŁECZNOŚĆ ═══ -->
+<section class="section">
+  <div class="aktywna">
+    <img class="aktywna__img" src="assets/images/group-photo.jpg" alt="Społeczność tenisowa">
+    <div class="aktywna__content">
+      <span class="badge-outline">Inicjatywa</span>
+      <div>
+        <h2 class="heading-xl"><em>Aktywna społeczność </em><strong>miłośników tenisa ziemnego</strong></h2>
+        <span class="accent-line"></span>
+      </div>
+      <p class="text-body">Klub powstał z pasji do sportu i od lat promuje tenis jako formę rekreacji, zdrowego stylu życia oraz integracji społecznej dla mieszkańców wszystkich grup wiekowych i poziomów zaawansowania.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EVENTY ═══ -->
+<section class="section section--dark section--dots">
+  <div class="events-grid">
+    <div class="event-card-main">
+      <img class="event-card-main__img" src="assets/images/liga-photo.jpg" alt="Liga Tenisa">
+      <div class="event-card-main__body">
+        <img class="event-card-main__icon" src="assets/images/tennis-icon.svg" alt="">
+        <div>
+          <h2 class="heading-xl heading-xl--white"><em style="color:#fff;font-weight:300;">Letnia </em><strong style="color:#fff;">Liga Tenisa</strong></h2>
+          <p class="text-body text-body--white text-body--lg" style="margin-top:12px;">Cykliczne, amatorskie rozgrywki integrujące lokalną społeczność. Wspieramy systematyczną aktywność i zdrową rywalizację przez cały sezon letni.</p>
+        </div>
+        <a href="projekty.html" class="btn-outline-white">Edycja 2026</a>
+      </div>
+    </div>
+    <div class="events-row">
+      <div class="event-card-small">
+        <img class="event-card-small__icon" src="assets/images/mikstowe-icon.svg" alt="">
+        <div>
+          <h3 class="heading-lg" style="color:#fff;"><em style="color:#fff;font-weight:300;">Turniej </em><strong style="color:#fff;">Par Mikstowych</strong></h3>
+          <p class="text-body text-body--white text-body--lg" style="margin-top:12px;">Coroczny turniej z losowaniem par mieszanych. Sportowa rywalizacja i świetna atmosfera.</p>
+        </div>
+      </div>
+      <div class="event-card-small">
+        <img class="event-card-small__icon" src="assets/images/family-icon.svg" alt="">
+        <div>
+          <h3 class="heading-lg" style="color:#fff;"><strong style="color:#fff;">Family Cup</strong><em style="color:#fff;font-weight:300;"> – tenis dla całych rodzin</em></h3>
+          <p class="text-body text-body--white text-body--lg" style="margin-top:12px;">Rodzinny turniej współorganizowany z Okocimskim Klubem Narciarskim.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CO ROBIMY ═══ -->
+<section class="section">
+  <div class="co-robimy">
+    <div class="co-robimy__gallery">
+      <img class="co-robimy__img-top" src="assets/images/co-robimy-1.jpg" alt="Szkolenia">
+      <div class="co-robimy__img-row">
+        <img class="co-robimy__img-bottom" src="assets/images/co-robimy-2.jpg" alt="Społeczność">
+        <img class="co-robimy__img-bottom" src="assets/images/co-robimy-3.jpg" alt="Inicjatywy">
+      </div>
+    </div>
+    <div class="co-robimy__content">
+      <div>
+        <h2 class="heading-xl"><em>Co </em><strong>robimy</strong></h2>
+        <span class="accent-line"></span>
+      </div>
+      <div class="co-robimy__list">
+        <div class="co-robimy__item">
+          <p class="co-robimy__item-title"><span>01. </span><strong>Szkolenia i zajęcia tenisowe</strong></p>
+          <p>Prowadzimy treningi dla dzieci, młodzieży oraz dorosłych, dostosowane do umiejętności uczestników, od osób początkujących po zaawansowanych.</p>
+        </div>
+        <div class="co-robimy__item">
+          <p class="co-robimy__item-title"><span>02. </span><strong>Aktywna społeczność tenisowa</strong></p>
+          <p>Organizujemy spotkania i rozgrywki, które łączą ludzi wokół wspólnej pasji do sportu.</p>
+        </div>
+        <div class="co-robimy__item">
+          <p class="co-robimy__item-title"><span>03. </span><strong>Otwarte inicjatywy sportowe</strong></p>
+          <p>Nasz klub angażuje się w wydarzenia lokalne, w tym charytatywne akcje i turnieje, np. wsparcie WOŚP poprzez licytację lekcji tenisa.</p>
+        </div>
+      </div>
+      <a href="co-robimy.html" class="btn-outline-dark" style="width:fit-content;">Dowiedz się więcej</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NASZA MISJA ═══ -->
+<section class="section section--dark section--dots">
+  <div class="misja">
+    <div class="misja__content">
+      <div>
+        <h2 class="heading-xl heading-xl--white"><em style="color:#fff;font-weight:300;">Nasza </em><strong style="color:#fff;">misja</strong></h2>
+        <span class="accent-line"></span>
+      </div>
+      <div class="misja__list">
+        <div class="misja__item">
+          <p class="misja__item-title">Upowszechniamy tenis ziemny</p>
+          <p>jako sport dostępny dla każdego — niezależnie od wieku czy poziomu umiejętności.</p>
+        </div>
+        <div class="misja__item">
+          <p class="misja__item-title">Promujemy zdrowy styl życia</p>
+          <p>i aktywność fizyczną.</p>
+        </div>
+        <div class="misja__item">
+          <p class="misja__item-title">Tworzymy lokalną społeczność sportową,</p>
+          <p>w której pasja łączy ludzi.</p>
+        </div>
+      </div>
+    </div>
+    <img class="misja__image" src="assets/images/dolacz-photo.jpg" alt="Tenisistka">
+  </div>
+</section>
+
+<!-- ═══ DOŁĄCZ DO NAS ═══ -->
+<section class="section">
+  <div class="dolacz">
+    <div class="dolacz__content">
+      <div>
+        <h2 class="heading-xl"><em>Dołącz </em><strong>do nas</strong></h2>
+        <span class="accent-line"></span>
+      </div>
+      <p class="dolacz__text">Niezależnie czy dopiero zaczynasz, czy szukasz sportowej rywalizacji i nowych znajomości. Korty tenisowe w Brzesku to miejsce, gdzie każdy może poczuć radość z gry i współzawodnictwa!</p>
+      <a href="https://facebook.com" class="btn-facebook">
+        <img src="assets/images/facebook-icon.svg" alt="Facebook">
+        Facebook
+        <span class="btn-facebook__arrow"></span>
+      </a>
+    </div>
+    <img class="dolacz__img" src="assets/images/co-robimy-2.jpg" alt="Klub tenisowy Brzesko">
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer__top">
+    <a href="index.html" class="footer__logo">
+      <img class="footer__logo-icon" src="assets/images/footer-logo-icon.svg" alt="OKT">
+      <span class="footer__logo-text">
+        <img class="footer__logo-name" src="assets/images/footer-logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="footer__logo-city" src="assets/images/footer-logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <nav class="footer__nav">
+      <a href="aktualnosci.html">Aktualności</a><span class="dot">·</span>
+      <a href="inicjatywa.html">Inicjatywa</a><span class="dot">·</span>
+      <a href="projekty.html">Projekty</a><span class="dot">·</span>
+      <a href="co-robimy.html">Co robimy</a><span class="dot">·</span>
+      <a href="galeria.html">Galeria</a><span class="dot">·</span>
+      <a href="kontakt.html">Kontakt</a><span class="dot">·</span>
+      <div class="footer__social">
+        <img src="assets/images/footer-facebook.svg" alt="Facebook">
+        <img src="assets/images/footer-instagram.svg" alt="Instagram">
+      </div>
+    </nav>
+  </div>
+  <hr class="footer__divider">
+  <div class="footer__credits">
+    <p class="footer__copy">© 2026 Okocimski Klub Tenisowy. Wszystkie prawa zastrzeżone</p>
+    <div class="footer__links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var card = document.getElementById('heroVideoCard');
+    var video = document.getElementById('heroVideo');
+    var overlay = document.getElementById('heroVideoOverlay');
+    if (!card || !video || !overlay) return;
+
+    card.addEventListener('click', function () {
+      if (video.paused) {
+        video.play();
+        overlay.classList.add('hidden');
+      } else {
+        video.pause();
+        overlay.classList.remove('hidden');
+      }
+    });
+
+    video.addEventListener('ended', function () {
+      overlay.classList.remove('hidden');
+    });
+  })();
+</script>
+</body>
+</html>

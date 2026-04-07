@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicjatywa — Okocimski Klub Tenisowy</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .intro-split { display:flex; gap:80px; align-items:center; margin-bottom:100px; }
+    .intro-split__img { flex-shrink:0; width:600px; height:420px; border-radius:20px; object-fit:cover; }
+    .intro-split__content { flex:1; display:flex; flex-direction:column; gap:24px; }
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .value-card {
+      border-radius:20px; padding:40px 36px; display:flex; flex-direction:column; gap:20px;
+      border:1.5px solid rgba(0,44,34,.12); transition:box-shadow .25s;
+    }
+    .value-card:hover { box-shadow:0 8px 40px rgba(0,44,34,.1); }
+    .value-card__num {
+      font-family:'Barlow',sans-serif; font-weight:700; font-size:60px; line-height:1;
+      color:var(--green-accent); letter-spacing:-2px;
+    }
+    .value-card__title { font-family:'Barlow',sans-serif; font-weight:700; font-size:26px; line-height:1.2; color:var(--green-dark); }
+    .value-card__text { font-size:16px; line-height:1.55; color:var(--text-gray); }
+    .cta-band { display:flex; align-items:center; justify-content:space-between; gap:40px; }
+    .cta-band__title { font-size:38px; line-height:1.1; letter-spacing:-.8px; color:#fff; }
+    .cta-band__title em { font-style:normal; font-family:'Barlow',sans-serif; font-weight:300; }
+    .cta-band__title strong { font-family:'Barlow',sans-serif; font-weight:700; }
+  </style>
+</head>
+<body>
+
+<section class="page-hero">
+  <img class="page-hero__bg" src="assets/images/group-photo.jpg" alt="">
+  <nav class="nav" style="position:absolute;top:0;left:0;right:0;">
+    <a href="index.html" class="nav__logo">
+      <img class="nav__logo-icon" src="assets/images/logo-icon.svg" alt="OKT">
+      <span class="nav__logo-text">
+        <img class="nav__logo-name" src="assets/images/logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="nav__logo-city" src="assets/images/logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="aktualnosci.html">Aktualności</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="inicjatywa.html" class="active">Inicjatywa</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="projekty.html">Projekty</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="co-robimy.html">Co robimy</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="galeria.html">Galeria</a></li><li><span class="nav__dot">·</span></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="nav__phone"><img src="assets/images/phone-icon.svg" alt=""><span>538 224 704</span></div>
+      <a href="kontakt.html" class="btn-outline">Zarezerwuj kort</a>
+      <div class="nav__social">
+        <img src="assets/images/facebook-icon.svg" alt="Facebook">
+        <img src="assets/images/instagram-icon.svg" alt="Instagram">
+      </div>
+    </div>
+  </nav>
+  <div class="page-hero__content">
+    <div class="breadcrumb">
+      <a href="index.html">Strona główna</a><span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current">Inicjatywa</span>
+    </div>
+    <h1 class="page-hero__title"><em>Nasza </em><strong>Inicjatywa</strong></h1>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="intro-split">
+    <img class="intro-split__img" src="assets/images/group-photo.jpg" alt="Społeczność OKT">
+    <div class="intro-split__content">
+      <span class="badge-outline">O nas</span>
+      <div>
+        <h2 class="heading-xl"><em>Aktywna społeczność </em><strong>miłośników tenisa</strong></h2>
+        <span class="accent-line"></span>
+      </div>
+      <p class="text-body text-body--lg">Okocimski Klub Tenisowy w Brzesku to miejsce, gdzie pasja do tenisa łączy się z budowaniem trwałej wspólnoty sportowej. Od lat angażujemy się w inicjatywy na rzecz lokalnej społeczności, promując aktywny tryb życia i sport dla każdego.</p>
+      <p class="text-body text-body--lg">Działamy nie tylko na kortach — organizujemy eventy, współpracujemy z innymi organizacjami sportowymi i angażujemy się w charytatywne akcje w regionie.</p>
+    </div>
+  </div>
+
+  <!-- Values -->
+  <div style="margin-bottom:24px;">
+    <h2 class="heading-xl"><em>Nasze </em><strong>wartości</strong></h2>
+    <span class="accent-line"></span>
+  </div>
+  <div class="values-grid" style="margin-top:60px;">
+    <div class="value-card">
+      <span class="value-card__num">01</span>
+      <h3 class="value-card__title">Dostępność dla wszystkich</h3>
+      <p class="value-card__text">Wierzymy, że tenis powinien być dostępny dla każdego — niezależnie od wieku, poziomu umiejętności czy sytuacji finansowej.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-card__num">02</span>
+      <h3 class="value-card__title">Wspólnota i integracja</h3>
+      <p class="value-card__text">Sport jest doskonałym pretekstem do budowania relacji. Łączymy ludzi z różnych środowisk wokół wspólnej pasji.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-card__num">03</span>
+      <h3 class="value-card__title">Zdrowy styl życia</h3>
+      <p class="value-card__text">Promujemy aktywność fizyczną jako nieodłączny element zdrowego i szczęśliwego życia — dla dzieci, młodzieży i dorosłych.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-card__num">04</span>
+      <h3 class="value-card__title">Zaangażowanie lokalne</h3>
+      <p class="value-card__text">Jesteśmy częścią Brzeszczańskiej społeczności. Wspieramy lokalne inicjatywy i działamy na rzecz naszego miasta.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-card__num">05</span>
+      <h3 class="value-card__title">Sportowa rywalizacja</h3>
+      <p class="value-card__text">Organizujemy turnieje i ligi, które dają możliwość zdrowej rywalizacji w przyjaznej, motywującej atmosferze.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-card__num">06</span>
+      <h3 class="value-card__title">Profesjonalne szkolenia</h3>
+      <p class="value-card__text">Zapewniamy dostęp do wysokiej jakości zajęć prowadzonych przez doświadczonych trenerów i instruktorów tenisa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA DARK -->
+<section class="section section--dark section--dots">
+  <div class="cta-band" style="position:relative;z-index:2;">
+    <div>
+      <h2 class="cta-band__title"><em>Dołącz do </em><strong>naszej inicjatywy</strong></h2>
+      <p class="text-body text-body--white text-body--lg" style="margin-top:16px;max-width:600px;">Stajesz się częścią czegoś większego niż sport. Razem budujemy aktywną społeczność Brzeszczan!</p>
+    </div>
+    <div style="display:flex;gap:16px;flex-shrink:0;">
+      <a href="kontakt.html" class="btn-outline-white">Skontaktuj się</a>
+      <a href="projekty.html" class="btn-primary">Nasze projekty</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__top">
+    <a href="index.html" class="footer__logo">
+      <img class="footer__logo-icon" src="assets/images/footer-logo-icon.svg" alt="OKT">
+      <span class="footer__logo-text">
+        <img class="footer__logo-name" src="assets/images/footer-logo-name.svg" alt="Okocimski Klub Tenisowy">
+        <img class="footer__logo-city" src="assets/images/footer-logo-city.svg" alt="w Brzesku">
+      </span>
+    </a>
+    <nav class="footer__nav">
+      <a href="aktualnosci.html">Aktualności</a><span class="dot">·</span>
+      <a href="inicjatywa.html">Inicjatywa</a><span class="dot">·</span>
+      <a href="projekty.html">Projekty</a><span class="dot">·</span>
+      <a href="co-robimy.html">Co robimy</a><span class="dot">·</span>
+      <a href="galeria.html">Galeria</a><span class="dot">·</span>
+      <a href="kontakt.html">Kontakt</a><span class="dot">·</span>
+      <div class="footer__social">
+        <img src="assets/images/footer-facebook.svg" alt="Facebook">
+        <img src="assets/images/footer-instagram.svg" alt="Instagram">
+      </div>
+    </nav>
+  </div>
+  <hr class="footer__divider">
+  <div class="footer__credits">
+    <p class="footer__copy">© 2026 Okocimski Klub Tenisowy. Wszystkie prawa zastrzeżone</p>
+    <div class="footer__links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="kontakt.html">Kontakt</a></div>
+  </div>
+</footer>
+</body>
+</html>
