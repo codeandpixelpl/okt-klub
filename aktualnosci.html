@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .news-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:60px; }
-    .news-header__left { display:flex; flex-direction:column; }
+    .news-header__left { display:flex; flex-direction:column; min-width:0; }
     .filter-bar { display:flex; gap:12px; flex-wrap:wrap; }
     .filter-btn {
       padding:10px 22px; border-radius:100px; font-family:'Barlow Semi Condensed',sans-serif;
@@ -34,7 +34,7 @@
       padding:60px; display:flex; flex-direction:column; gap:24px;
       justify-content:center; background:#fff;
     }
-    .featured-article__meta { display:flex; align-items:center; gap:16px; }
+    .featured-article__meta { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
     .featured-article__date { font-size:14px; color:var(--text-gray); }
     .featured-article__title {
       font-family:'Barlow',sans-serif; font-weight:700; font-size:36px;

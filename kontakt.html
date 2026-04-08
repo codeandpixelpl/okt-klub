@@ -58,7 +58,7 @@
       display:flex; align-items:center; gap:12px; box-shadow:0 8px 32px rgba(0,44,34,.3);
     }
     .map-pin-overlay span { font-family:'Barlow',sans-serif; font-weight:600; font-size:16px; }
-    .social-bar { display:flex; gap:16px; }
+    .social-bar { display:flex; gap:16px; flex-wrap:wrap; }
     .social-link {
       display:flex; align-items:center; gap:10px; padding:12px 20px;
       border-radius:100px; border:1.5px solid rgba(0,44,34,.15);
@@ -74,6 +74,9 @@
       .map-section { padding: 0 20px 60px; }
       .map-container { height: 300px; border-radius: 16px; }
       .social-bar { flex-wrap: wrap; gap: 10px; }
+      .hours-row { gap: 12px; align-items: flex-start; }
+      .hours-row span:last-child { text-align: right; }
+      .map-pin-overlay { max-width: calc(100% - 24px); padding: 12px 16px; }
     }
   </style>
 </head>
